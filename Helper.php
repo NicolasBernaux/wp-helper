@@ -8,6 +8,7 @@ Author URI: http://www.nicolas-bernaux.com
 namespace Helper;
 
 use Helper\Transient;
+use Helper\Image;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -29,10 +30,27 @@ class Helper {
 	 *
 	 * @param string   $slug           Unique identifier for transient
 	 * @param callable $callback       Callback that generates the data that's to be cached
-	 * @param integer  $transient_time (optional) Expiration of transients in seconds
+	 * @param int      $transient_time (optional) Expiration of transients in seconds
 	 * @return mixed
 	 */
 	public static function transiant( $slug, $callback, $transient_time = 0 ) {
 		return Transient::transient( $slug, $callback, $transient_time );
+	}
+
+	/**
+	 * A utility for Image
+	 * @api
+	 * @example
+	 * ```php
+	 * $image = Helper::image( 522, array( 'medium', 'full' ) );
+	 * ```
+	 *
+	 * @param int        $id   Id of the image
+	 * @param int|array  $size (optional) Image size
+	 * @return mixed
+	 */
+	public static function image( $id, $size = null ) {
+		$image = new Image( $id );
+		return $image->get_image( $size );
 	}
 }
