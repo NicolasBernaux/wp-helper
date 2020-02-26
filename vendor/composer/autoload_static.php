@@ -22,6 +22,7 @@ class ComposerStaticInitbd8a0b3e64a578a32c9afdbfdd394dc1
 
     public static $classMap = array (
         'Helper\\Helper' => __DIR__ . '/../..' . '/Helper.php',
+        'Helper\\Transient' => __DIR__ . '/../..' . '/Helper/Transient.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

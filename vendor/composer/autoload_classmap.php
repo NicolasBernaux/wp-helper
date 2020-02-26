@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Helper\\Helper' => $baseDir . '/Helper.php',
+    'Helper\\Transient' => $baseDir . '/Helper/Transient.php',
 );
