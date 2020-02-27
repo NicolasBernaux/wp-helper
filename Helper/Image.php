@@ -48,12 +48,14 @@ class Image {
 
 		// if passed WP_Post
 		if ( $image_id instanceof \WP_Post ) {
-			$ref  = new \ReflectionClass( $this );
-			$post = $ref->getParentClass()->newInstance( $image_id->ID );
-			if ( isset( $post->_thumbnail_id ) && $post->_thumbnail_id ) {
-				return ( (int) $post->_thumbnail_id );
+			if ( 'Attachment' !== $image_id->post_type ) {
+				$featured_image = get_post_thumbnail_id( $image_id );
+				if ( $featured_image ) {
+					return $featured_image;
+				}
 			}
-			return ( $image_id->ID );
+
+			return;
 		}
 
 		return $image_id;
