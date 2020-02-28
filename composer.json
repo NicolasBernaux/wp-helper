@@ -1,5 +1,7 @@
 {
-    "name": "nicolasbernaux/wp-helpers",
+    "name": "nicolasbernaux/wp-helper",
+    "type": "wordpress-muplugin",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Nicolas Bernaux",
